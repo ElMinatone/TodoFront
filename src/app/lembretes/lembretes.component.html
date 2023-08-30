@@ -1,0 +1,50 @@
+<div class="body">
+  <div class="screen margem">
+    <div class="lateral postarea">
+      <a style="margin-bottom: 100px;"> <a><svg
+            xmlns="http://www.w3.org/2000/svg" class="ionicon emoji"
+            viewBox="0 0 512 512"><path
+              d="M80 212v236a16 16 0 0016 16h96V328a24 24 0 0124-24h80a24 24 0 0124 24v136h96a16 16 0 0016-16V212"
+              fill="none" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="32" /><path
+              d="M480 256L266.89 52c-5-5.28-16.69-5.34-21.78 0L32 256M400 179V64h-48v69"
+              fill="none" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="32" /></svg></a> Menu</a>
+      <a style="padding-top: 20px;"> <a><svg xmlns="http://www.w3.org/2000/svg"
+            class="ionicon emoji" viewBox="0 0 512 512"><path fill="none"
+              stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="32"
+              d="M160 144h288M160 256h288M160 368h288" /><circle cx="80"
+              cy="144" r="16" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="32" /><circle
+              cx="80" cy="256" r="16" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="32" /><circle
+              cx="80" cy="368" r="16" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="32" /></svg></a>
+        Lembretes</a>
+    </div>
+    <div>
+      <span class="title"> My ToDo List! </span>
+      <div class="postsarea">
+        <div class="container">
+          <div class="row">
+            <div *ngFor="let item of todos" class="col-4 pt-3">
+              <div class="post {{ item.finalizado == true ? 'verde' : 'nada' }}" [ngStyle]="{'background-color': item.cor}"> <h4>{{ item.titulo }}</h4> {{item.descricao}}	
+                <button *ngIf="item.finalizado == false"  class="alinhabu btn btn-success w-100" (click)="completetodos(item.id)">Marcar como Feito</button>
+                <div class="d-flex w-100 justify-content-evenly">
+                  <button  (click)="deletetodos(item.id)" class="alinhabu btn btn-danger w-100">Apagar</button>
+                  <button class="alinhabu btn-primary btn w-100" (click)="puttodos(item.id)">Editar</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 pt-3">
+
+              <div (click)="posttodos()" class="postcria cor3 alinha"> + Adicionar novo lembrete
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
